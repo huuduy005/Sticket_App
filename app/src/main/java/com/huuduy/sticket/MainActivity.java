@@ -245,7 +245,6 @@ public class MainActivity extends AppCompatActivity
                     onLoadSuccess(events);
                     Log.d(TAG, events.toString());
                     Log.d(TAG, events.get(0).getInformation());
-                    ;
                 } catch (JSONException e) {
                     e.printStackTrace();
                     onLoadFailed(-1, "Rút dữ liệu bị lỗi");

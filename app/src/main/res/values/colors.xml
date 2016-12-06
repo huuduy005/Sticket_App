@@ -21,4 +21,8 @@
     <color name="green">#13955C</color>
     <color name="greenDark">#1A8763</color>
     <color name="whitegreen">#FAFAFA</color>
+
+    <color name="orange">#FF9900</color>
+    <color name="green_">#009900</color>
+    <color name="blue">#000099</color>
 </resources>

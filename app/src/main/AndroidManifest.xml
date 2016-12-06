@@ -19,7 +19,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.Main">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +32,10 @@
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/AppTheme.SignInUp" />
+        <activity
+            android:name=".EventDetailActivity"
+            android:label="@string/title_activity_event_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

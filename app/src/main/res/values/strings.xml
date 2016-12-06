@@ -17,4 +17,5 @@
 
     <!--Dùng cho Activity SignUp-->
     <string name="repassword">Repasword</string>
+    <string name="title_activity_event_detail">Chi tiết sự kiện</string>
 </resources>

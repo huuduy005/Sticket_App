@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:elevation="5dp"
+    android:background="@drawable/bg_event_item"
+    android:translationZ="0dp">
+
+    <ImageView
+        android:id="@+id/image_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription=""
+        app:srcCompat="@drawable/hd"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tên sự kiện" />
+
+    <TextView
+        android:id="@+id/text_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Giá vé" />
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Địa điểm" />
+</LinearLayout>

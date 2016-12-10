@@ -11,27 +11,43 @@
 
     <ImageView
         android:id="@+id/image_event"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:maxHeight="400dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:contentDescription=""
         app:srcCompat="@drawable/hd"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:maxWidth="300dp" />
 
     <TextView
         android:id="@+id/text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tên sự kiện" />
+        android:text="Tên sự kiện"
+        android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/text_price"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Giá vé" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/text_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Địa điểm" />
+        <TextView
+            android:id="@+id/text_price"
+            android:layout_width="wrap_content"
+            android:minWidth="50dp"
+            android:layout_height="wrap_content"
+            android:text="Giá vé"
+            android:background="@drawable/m_textview"
+            android:textColor="@color/white"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/text_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa điểm"
+            android:gravity="right" />
+    </RelativeLayout>
+
 </LinearLayout>

@@ -2,7 +2,6 @@ package com.huuduy.sticket;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -20,11 +19,13 @@ import java.util.List;
 
 public class AdapterEvent extends ArrayAdapter<EventModel> {
 
+
     public static class ViewHolder {
         ImageView imageView;
         TextView text_title;
         TextView text_price;
         TextView text_location;
+        int idEvent;
     }
 
     public AdapterEvent(Context context, List<EventModel> events) {
@@ -45,10 +46,16 @@ public class AdapterEvent extends ArrayAdapter<EventModel> {
             convertView.setTag(viewHolder);
         } else viewHolder = (ViewHolder) convertView.getTag();
         EventModel eventModel = getItem(position);
+        viewHolder.idEvent = eventModel.getIdEvent();
         viewHolder.text_title.setText(eventModel.getInformation() + "");
         viewHolder.text_price.setText(eventModel.getPrice() + "");
         viewHolder.text_location.setText(eventModel.getLocation() + "");
 
+
+        ImageLoader imageLoader = ImageLoader.getInstance(); // Get singleton instance
+// Load image, decode it to Bitmap and display Bitmap in ImageView (or any other view
+//  which implements ImageAware interface)
+        imageLoader.displayImage(eventModel.getImage(), viewHolder.imageView);
 //        viewHolder.imageView.setTag(eventModel.getPoster_landscape());
 //        imageLoader.DisplayImage(filmModel.getPoster_landscape(), viewHolder.imageView);
         return convertView;

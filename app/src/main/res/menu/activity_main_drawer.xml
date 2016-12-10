@@ -18,6 +18,10 @@
             android:id="@+id/nav_signup"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/nav_signup" />
+        <item
+            android:id="@+id/nav_addevent"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_addevent" />
     </group>
 
     <item android:title="Communicate">

@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="15dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:weightSum="1">
 
         <ImageView
             android:src="@drawable/hd"
@@ -23,6 +24,13 @@
             android:contentDescription="" />
 
         <!-- Name Label -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="@string/name" />
+                android:hint="Tên dự kiện" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Address Label -->
@@ -45,14 +53,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_weight="0.51">
 
             <EditText
-                android:id="@+id/input_email"
+                android:id="@+id/input_information"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email" />
+                android:layout_height="153dp"
+                android:inputType="textMultiLine"
+                android:hint="Thông tin"
+                android:textAlignment="center" />
         </android.support.design.widget.TextInputLayout>
 
 

@@ -1,4 +1,4 @@
-package com.huuduy.sticket;
+package com.huuduy.sticket.Events;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huuduy.sticket.R;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -26,6 +27,10 @@ public class AdapterEvent extends ArrayAdapter<EventModel> {
         TextView text_price;
         TextView text_location;
         int idEvent;
+
+        public int getIdEvent() {
+            return idEvent;
+        }
     }
 
     public AdapterEvent(Context context, List<EventModel> events) {
@@ -41,7 +46,7 @@ public class AdapterEvent extends ArrayAdapter<EventModel> {
             viewHolder = new ViewHolder();
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.image_event);
             viewHolder.text_title = (TextView) convertView.findViewById(R.id.text_title);
-            viewHolder.text_price = (TextView) convertView.findViewById(R.id.text_price);
+            viewHolder.text_price = (TextView) convertView.findViewById(R.id.text_location);
             viewHolder.text_location = (TextView) convertView.findViewById(R.id.text_location);
             convertView.setTag(viewHolder);
         } else viewHolder = (ViewHolder) convertView.getTag();

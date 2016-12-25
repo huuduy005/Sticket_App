@@ -35,12 +35,24 @@
             android:name=".SignUpActivity"
             android:theme="@style/AppTheme.SignInUp" />
         <activity
-            android:name=".EventDetailActivity"
+            android:name=".Events.EventDetailActivity"
             android:label="@string/title_activity_event_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddEventActivity"
-            android:label="@string/title_activity_add_event"></activity>
+            android:name=".Events.AddEventActivity"
+            android:label="@string/title_activity_add_event" />
+        <activity
+            android:name=".Events.Events"
+            android:label="@string/title_activity_events"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tickets.TicketsActivity"
+            android:label="@string/title_activity_tickets"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tickets.TicketDetailActivity"
+            android:label="@string/title_activity_ticket_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

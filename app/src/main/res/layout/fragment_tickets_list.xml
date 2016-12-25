@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.huuduy.sticket.Events.EventsList">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/SwipeRefreshTickets"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/list_tickets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

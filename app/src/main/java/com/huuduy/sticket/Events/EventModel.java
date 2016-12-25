@@ -1,4 +1,4 @@
-package com.huuduy.sticket;
+package com.huuduy.sticket.Events;
 
 /**
  * Created by huudu on 06/12/2016.

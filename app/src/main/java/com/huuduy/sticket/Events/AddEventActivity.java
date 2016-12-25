@@ -1,4 +1,4 @@
-package com.huuduy.sticket;
+package com.huuduy.sticket.Events;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.huuduy.sticket.LoginActivity;
+import com.huuduy.sticket.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

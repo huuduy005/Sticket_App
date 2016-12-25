@@ -3,6 +3,7 @@ package com.huuduy.sticket;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -117,6 +118,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setEnabled(true);
         progressDialog.dismiss();
         Toast.makeText(getApplicationContext(), token, Toast.LENGTH_LONG).show();
+        SharedPreferences pre = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor edit = pre.edit();
+        edit.putString("token", token);
+        edit.commit();
+        edit.apply();
         finish();
     }
 

@@ -9,18 +9,9 @@
     tools:context="com.huuduy.sticket.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/SwipeRefreshEvents"
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/listview_events"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

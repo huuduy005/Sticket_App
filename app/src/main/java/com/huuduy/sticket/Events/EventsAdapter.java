@@ -22,7 +22,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView text_title, text_price, text_location;
-        public int idEvent;
+        public String idEvent;
 
         public MyViewHolder(View view) {
             super(view);

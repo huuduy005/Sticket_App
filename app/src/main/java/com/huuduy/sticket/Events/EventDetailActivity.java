@@ -1,6 +1,5 @@
 package com.huuduy.sticket.Events;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,8 +43,8 @@ public class EventDetailActivity extends AppCompatActivity {
                 SharedPreferences pre = getSharedPreferences("user", MODE_PRIVATE);
                 String token = pre.getString("token", "");
                 if (token == "") {
-                    AlertDialog mA = createDialog();
-                    mA.show();
+                    AlertDialog dialog = createDialog();
+                    dialog.show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Đang thực hiện", Toast.LENGTH_SHORT).show();
                 }
@@ -73,8 +72,8 @@ public class EventDetailActivity extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("Hủy", null);
-        AlertDialog mm = builder.create();
-        return mm;
+        AlertDialog dialog = builder.create();
+        return dialog;
     }
 
 }

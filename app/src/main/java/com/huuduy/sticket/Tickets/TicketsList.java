@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.huuduy.sticket.R;
 import com.huuduy.sticket.RecyclerTouchListener;
+import com.huuduy.sticket.Ulti.DatabaseHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +37,7 @@ import okhttp3.Response;
 public class TicketsList extends Fragment {
 
     private static final String TAG = "TicketsList";
-    private static final String API = "https://sticket.herokuapp.com/api/events";
+    private static final String API = "https://sticket.herokuapp.com/api/tickets/1312078";
     private static final String API_ONGOING = "https://sticket.herokuapp.com/api/tickets";
     private static final String API_PAST = "https://sticket.herokuapp.com/api/tickets";
 
@@ -45,6 +46,7 @@ public class TicketsList extends Fragment {
     RecyclerView mRecyclerTickets;
     ArrayList<TicketModel> mTicketsList;
     TicketsAdapter mTicketsAdapter;
+    DatabaseHelper mDatabase;
 
     public TicketsList() {
     }
@@ -53,7 +55,7 @@ public class TicketsList extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
-//        loadData();
+//        loadDataLocal();
     }
 
     @Nullable
@@ -85,9 +87,11 @@ public class TicketsList extends Fragment {
                 Toast.makeText(getContext(), ticket.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), TicketDetailActivity.class);
-                intent.putExtra("idEvent", "d");
+                intent.putExtra("idTicket", ticket.getIdTicket());
+                intent.putExtra("idEvent", ticket.getIdEvent());
                 intent.putExtra("title", ticket.getTitle());
                 startActivity(intent);
+                Toast.makeText(getContext(), ticket.getIdTicket(), Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -96,23 +100,20 @@ public class TicketsList extends Fragment {
             }
         }));
         Log.d(TAG, "onCreateView: new recyclerview");
-        loadData();
+        mDatabase = new DatabaseHelper(getActivity());
+//        mDatabase.create();
+        loadDataLocal();
         return view;
     }
 
+    private void loadDataLocal() {
+        mTicketsList = new ArrayList<TicketModel>(mDatabase.getAllTickets());
+        mTicketsAdapter = new TicketsAdapter(mTicketsList);
+        mRecyclerTickets.setAdapter(mTicketsAdapter);
+    }
+
     private void loadData() {
-        int idEvent = 1;
-        String title = "GGGGG";
-        String location = "TP.HCM";
-        String time = "Thông tin";
-
-        for (int i = 0; i < 10; i++) {
-            TicketModel ticket = new TicketModel(idEvent, title, location, time);
-            ticket.setTitle("ssss");
-            mTicketsList.add(ticket);
-        }
-
-        if (mLoadTicketsTask == null){
+        if (mLoadTicketsTask == null) {
             refreshTickets();
         }
     }
@@ -123,9 +124,11 @@ public class TicketsList extends Fragment {
     }
 
     void onLoadSuccess(ArrayList<TicketModel> tickets) {
-        mTicketsList = new ArrayList<TicketModel>(tickets);
-        mTicketsAdapter = new TicketsAdapter(mTicketsList);
-        mRecyclerTickets.setAdapter(mTicketsAdapter);
+        mDatabase.clear();
+        for (int i = 0; i < tickets.size(); i++) {
+            mDatabase.addTicket(tickets.get(i));
+        }
+        loadDataLocal();
         mSwipeRefreshTickets.setRefreshing(false);
     }
 
@@ -176,11 +179,17 @@ public class TicketsList extends Fragment {
                     JSONArray mainObject = new JSONArray(mResponse);
                     for (int i = 0; i < mainObject.length(); i++) {
                         JSONObject jsonObject = mainObject.getJSONObject(i);
-                        int idEvent = jsonObject.getInt("idEvent");
-                        String title = jsonObject.getString("title");
-                        String location = jsonObject.getString("location");
-                        String time = jsonObject.getString("time");
-                        TicketModel event = new TicketModel(idEvent, title, location, time);
+
+                        String idTicket = jsonObject.getString("idTicket");
+                        int idUser = jsonObject.getInt("idUser");
+                        String device = jsonObject.getString("device");
+                        String idEvent = jsonObject.getString("idEvent");
+                        String information = jsonObject.getString("information");
+                        String title = information;
+                        String location = information;
+                        String time = information;
+
+                        TicketModel event = new TicketModel(idTicket, idUser, idEvent, device, title, information, location, time);
                         tickets.add(event);
                     }
                     onLoadSuccess(tickets);

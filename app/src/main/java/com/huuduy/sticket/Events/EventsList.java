@@ -162,7 +162,7 @@ public class EventsList extends Fragment {
                     JSONArray mainObject = new JSONArray(mResponse);
                     for (int i = 0; i < mainObject.length(); i++) {
                         JSONObject jsonObject = mainObject.getJSONObject(i);
-                        int idEvent = jsonObject.getInt("idEvent");
+                        String idEvent = jsonObject.getString("idEvent");
                         String information = jsonObject.getString("information");
                         String image = jsonObject.getString("image");
                         int price = jsonObject.getInt("price");

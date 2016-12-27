@@ -5,7 +5,9 @@ package com.huuduy.sticket.Events;
  */
 
 public class EventModel {
-    private int idEvent;
+    private String idEvent;
+    private String title;
+    private String time;
     private String information;
     private String image;
     private int price;
@@ -14,7 +16,7 @@ public class EventModel {
     private int numberTicket;
     private String tags[];
 
-    public EventModel(int idEvent, String information, String image, int price, String location, String type, int numberTicket, String[] tags) {
+    public EventModel(String idEvent, String information, String image, int price, String location, String type, int numberTicket, String[] tags) {
         this.idEvent = idEvent;
         this.information = information;
         this.image = image;
@@ -25,11 +27,24 @@ public class EventModel {
         this.tags = tags;
     }
 
-    public int getIdEvent() {
+    public EventModel(String idEvent, String title, String time, String information, String image, int price, String location, String type, int numberTicket, String[] tags) {
+        this.idEvent = idEvent;
+        this.title = title;
+        this.time = time;
+        this.information = information;
+        this.image = image;
+        this.price = price;
+        this.location = location;
+        this.type = type;
+        this.numberTicket = numberTicket;
+        this.tags = tags;
+    }
+
+    public String getIdEvent() {
         return idEvent;
     }
 
-    public void setIdEvent(int idEvent) {
+    public void setIdEvent(String idEvent) {
         this.idEvent = idEvent;
     }
 
@@ -87,5 +102,21 @@ public class EventModel {
 
     public void setTags(String[] tags) {
         this.tags = tags;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

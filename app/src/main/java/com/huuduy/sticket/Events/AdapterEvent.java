@@ -26,9 +26,9 @@ public class AdapterEvent extends ArrayAdapter<EventModel> {
         TextView text_title;
         TextView text_price;
         TextView text_location;
-        int idEvent;
+        String idEvent;
 
-        public int getIdEvent() {
+        public String getIdEvent() {
             return idEvent;
         }
     }
